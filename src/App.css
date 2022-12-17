@@ -1,0 +1,17 @@
+@import "antd/dist/reset.css";
+
+.App {
+  margin-top: 3rem;
+}
+
+.pokemont-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 3rem;
+  padding: 0 3rem 3rem;
+}
+
+.App img {
+  margin-bottom: 3rem;
+}
