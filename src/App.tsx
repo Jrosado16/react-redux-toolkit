@@ -4,25 +4,17 @@ import { Col, Spin } from 'antd';
 import PokemonList from './components/PokemonList';
 import logo from './statics/logo.svg';
 import { Dispatch, useEffect } from 'react';
-import { getPokemons } from './api';
-import { getPokemonsWithDetails, setLoading } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchPokemonsWithDetails } from './slices/dataSlice';
 
 function App() {
-  const pokemons = useSelector((state:any) => state.data.pokemons);
+  const pokemons = useSelector((state:any) => state.data.pokemonsFiltered);
   const loading = useSelector((state:any) => state.ui.loading);
   // const dispatch = useDispatch();
   const dispatch = useDispatch<Dispatch<any>>();
 
   useEffect(() => {
-    const getPokemonsData = async () => {
-      dispatch(setLoading(true));
-      const pokemonRes = await getPokemons();
-      dispatch(getPokemonsWithDetails(pokemonRes));
-      dispatch(setLoading(false));
-    }
-
-    getPokemonsData();
+    dispatch(fetchPokemonsWithDetails())
   }, []);
 
   return (
@@ -48,5 +40,7 @@ function App() {
 // const mapDispatchToProps = (dispatch:any) => ({
 //   setPokemons: (value:any) => dispatch(setPokemonsActions(value)),
 // });
+
+// se dejaron de usar los action y los reducer: fueron remplazados por redux toolkit
 
 export default App;

@@ -9,7 +9,7 @@ import { rootReducer } from './reducers'
 
 const composeAlt = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const composeEnhancer = composeAlt(applyMiddleware(thunk,logger));
+const composeEnhancer = composeAlt(applyMiddleware(thunk, logger));
 
 const store = createStore(
   rootReducer,

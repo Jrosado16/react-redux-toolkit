@@ -1,7 +1,7 @@
 import { Card } from "antd"
 import Meta from "antd/es/card/Meta"
 import { useDispatch } from "react-redux";
-import { setFavorite } from "../actions";
+import { setFavorite } from "../slices/dataSlice";
 import StartButton from "./StartButton";
 
 type Pokemon = {
@@ -11,7 +11,6 @@ type Pokemon = {
   id: number,
   favorite: boolean,
 }
-
 
 const PokemonCard = ({ name, image, types, id, favorite }: Pokemon) => {
   const dispatch = useDispatch();
